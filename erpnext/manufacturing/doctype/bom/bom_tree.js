@@ -43,3 +43,5 @@ frappe.treeview_settings["BOM"] = {
 	],
 	view_template: 'bom_item_preview'
 }
+
+{% include 'luma/custom_method/custom_bom_tree.js' %}
