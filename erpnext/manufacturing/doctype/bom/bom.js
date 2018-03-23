@@ -5,6 +5,7 @@ frappe.provide("erpnext.bom");
 
 frappe.ui.form.on("BOM", {
 	setup: function(frm) {
+		console.log("in bom")
 		frm.add_fetch('buying_price_list', 'currency', 'currency')
 
 		frm.set_query("bom_no", "items", function() {
