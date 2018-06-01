@@ -459,8 +459,11 @@ class ProductionOrder(Document):
 					and entry.docstatus = 1
 					and detail.parent = entry.name
 					and detail.item_code = %s''', (self.name, d.item_code))[0][0]
-
-			d.db_set('transferred_qty', transferred_qty, update_modified = False)
+			if transferred_qty:
+				d.db_set('transferred_qty', transferred_qty, update_modified = False)
+			else:
+				transferred_qty = 0
+				d.db_set('transferred_qty', transferred_qty, update_modified = False)
 
 
 @frappe.whitelist()
